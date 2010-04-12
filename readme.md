@@ -2,7 +2,7 @@
 
 Converts Wordpress blog posts in wordpress xml format to Restructured Text.
 
-## Help
+## Help:
 Run on commandline. Use -h option to view command line options  
 
 	-h, --help            show this help message and exit  
@@ -26,3 +26,7 @@ This will convert to json and save split out the categories, tags and posts into
 The following will split and convert to json with any html fields converted to Rst format.
 
 	python parse.py -f myblog.xml -o myblog.json -c	-s
+	
+## Requirements:
+
+The Rst conversion is done via <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>, so this will need to be installed if conversion to Rst is required.
