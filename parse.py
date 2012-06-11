@@ -60,7 +60,7 @@ class WP_Importer(object):
                 'link': post.findtext('link'),
                 'creator': post.findtext('{http://purl.org/dc/elements/1.1/}creator'),
                 'categories': dict([(c.findtext("."), "") for c in post.findall("category[@domain='category']")]).keys(),
-                'tags': dict([(c.findtext("."), "") for c in post.findall("category[@domain='tag']")]).keys(),
+                'tags': dict([(c.findtext("."), "") for c in post.findall("category[@domain='post_tag']")]).keys(),
                 'description': post.findtext('description'),
                 'content': post.findtext('{http://purl.org/rss/1.0/modules/content/}encoded') if not self.do_convert else self.convert_To_Rst(post.findtext('{http://purl.org/rss/1.0/modules/content/}encoded')),
                 'post_date': datetime.datetime.strptime(post.findtext('{http://wordpress.org/export/1.1/}post_date'), "%Y-%m-%d %H:%M:%S").strftime("%Y/%m/%d %H:%M:%SZ"),
