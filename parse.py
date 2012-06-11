@@ -17,7 +17,7 @@ class WP_Importer(object):
     def convert_To_Rst(self, html):
         '''Converts html to Rst'''
         p = subprocess.Popen(['pandoc', '--from=html', '--to=rst'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        (stdout, stderr) = p.communicate(html)
+        (stdout, stderr) = p.communicate(unicode(html).encode('utf-8'))
 #        if stderr != "":
 #            print 'ERROR CONVERTING THE FOLLOWING TO RST :'
 #            print 'ATTEMPTING TO CONVERT : %s' % html[0:80]
